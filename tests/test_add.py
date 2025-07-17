@@ -1,4 +1,4 @@
-from circle_test import add
+from circle_test import add, sub
 
 
 def test_add() -> None:
