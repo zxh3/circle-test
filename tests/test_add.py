@@ -6,4 +6,4 @@ def test_add() -> None:
 
 
 def test_sub() -> None:
-    assert sub(1, 2) == -1
+    assert sub(1, 3) == -2
