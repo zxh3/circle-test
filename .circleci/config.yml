@@ -1,8 +1,18 @@
 version: '2.1'
 orbs:
-  python: circleci/python@3.2.0
+  python: circleci/python@3.0.0
 jobs:
   build:
+    executor: python/default
+    steps:
+      - checkout
+      - python/install-packages:
+          pkg-manager: uv
+      - run:
+          name: Check pytest
+          command: |
+            uv run pytest --version
+  test:
     executor: python/default
     steps:
       - checkout
@@ -16,3 +26,6 @@ workflows:
   main:
     jobs:
       - build
+      - test:
+          requires:
+            - build
